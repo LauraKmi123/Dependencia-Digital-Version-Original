@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espejos Digitales | Plataforma Transmedia</title>
+    <link rel="icon" type="image/png" href="IMAGENES/LOGUITO NUEVO PAG.png">
+    <link rel="apple-touch-icon" href="IMAGENES/LOGUITO NUEVO PAG.png">
+    
+    <!-- Tailwind CSS local: funciona también sin conexión a Internet -->
+    <link rel="stylesheet" href="tailwind.local.css">
+    <!-- Tipografías: se usan fuentes del sistema como respaldo offline -->
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
+    <!-- Chart.js CDN -->
+    <script src="vendor/chart.min.js"></script>
+
+    <link rel="stylesheet" href="pagina.css">
+    <link rel="stylesheet" href="analytics.css">
+    <script src="pagina.js" defer></script>
+    <script src="analytics.js" defer></script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased custom-scrollbar selection:bg-indigo-500 selection:text-white">
+
+    <!-- ========================================================================= -->
+    <!--  INICIO DEL CÓDIGO HTML (ESTRUCTURA, NAVEGACIÓN Y CONTENIDO)              -->
+    <!-- ========================================================================= -->
+
+    <!-- Header / Barra de Navegación -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+
+                <!-- Logo -->
+                <a href="#inicio" class="flex items-center gap-3 group">
+
+                    <!-- Imagen del logo -->
+                    <div class="w-10 h-10 rounded-xl overflow-hidden flex-shrink-0 shadow-lg shadow-indigo-500/30 group-hover:scale-105 transition-transform">
+                        <img
+                            src="IMAGENES/LOGUITO NUEVO PAG.png"
+                            alt="Logo de la plataforma"
+                            class="w-full h-full object-cover"
+                        >
+                    </div>
+
+                    <div>
+                        <span class="font-display font-bold text-xl tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+                            Lo que ves ≠ Lo que es
+                        </span>
+                        <span class="block text-[10px] text-cyan-400 font-medium tracking-widest uppercase">
+                            Plataforma Transmedia
+                        </span>
+                    </div>
+
+                </a>
+
+                <!-- Navegación de Escritorio -->
+                <nav class="hidden lg:flex items-center gap-1">
+                    <a href="#inicio" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition">1. Inicio</a>
+                    <a href="#historia" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition">2. Historia</a>
+                    <a href="#relatos" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition">3. Relatos</a>
+                    <a href="#podcast" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition">4. Podcast</a>
+                    <a href="#recursos" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition">5. Recursos</a>
+                </nav>
+
+                <!-- Botón de Acción -->
+                <div class="hidden lg:flex items-center gap-3">
+                    <a href="#recursos" class="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold shadow-lg shadow-indigo-600/30 hover:shadow-indigo-500/50 transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-heart-pulse text-cyan-300"></i> Guía práctica
+                    </a>
+                </div>
+
+                <!-- Menú Móvil -->
+                <button id="mobile-menu-btn" type="button" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+
+            </div>
+        </div>
+
+        <!-- Desplegable Móvil -->
+        <nav id="mobile-menu" class="mobile-menu-panel lg:hidden bg-slate-900/95 backdrop-blur-xl border-b border-slate-800 px-4" aria-label="Navegación móvil" aria-hidden="true">
+            <a href="#inicio" class="mobile-link block px-4 py-3 rounded-lg text-slate-200 hover:bg-indigo-600/20 font-medium">1. Inicio</a>
+            <a href="#historia" class="mobile-link block px-4 py-3 rounded-lg text-slate-200 hover:bg-indigo-600/20 font-medium">2. Historia</a>
+            <a href="#relatos" class="mobile-link block px-4 py-3 rounded-lg text-slate-200 hover:bg-indigo-600/20 font-medium">3. Relatos</a>
+            <a href="#podcast" class="mobile-link block px-4 py-3 rounded-lg text-slate-200 hover:bg-indigo-600/20 font-medium">4. Podcast Interactivo</a>
+            <a href="#recursos" class="mobile-link block px-4 py-3 rounded-lg text-slate-200 hover:bg-indigo-600/20 font-medium">5. Recursos, Test y Kit Digital</a>
+        </nav>
+    </header>
+
+    <main class="pt-20">
+
+        <!-- SECCIÓN 1: INICIO -->
+        <section id="inicio" class="hero relative min-h-[90vh] flex items-center justify-center overflow-hidden py-16">
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+            <div class="absolute bottom-10 right-10 w-[350px] h-[350px] bg-cyan-500/15 rounded-full blur-[100px] pointer-events-none"></div>
+            <div class="hero-parallax-orb hero-parallax-orb--violet absolute" data-parallax-depth="0.16" aria-hidden="true"></div>
+            <div class="hero-parallax-orb hero-parallax-orb--cyan absolute" data-parallax-depth="0.10" aria-hidden="true"></div>
+            <div class="hero-parallax-orb hero-parallax-orb--ring absolute" data-parallax-depth="0.07" aria-hidden="true"></div>
+
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-semibold tracking-wide uppercase mb-8">
+                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                    Investigación & Creación Transmedia
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-display font-extrabold tracking-tight leading-tight text-white mb-6">
+                    Lo que ves <span class="bg-gradient-to-r from-indigo-400 via-purple-300 to-cyan-400 bg-clip-text text-transparent">≠ Lo que es</span>
+                </h1>
+
+                <p class="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto font-normal leading-relaxed mb-10">
+                    Explora una experiencia sobre comparación,
+                    validación digital y uso excesivo de las
+                    redes sociales.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#relatos" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 text-white font-semibold shadow-xl shadow-indigo-600/30 hover:scale-105 transition-all text-center flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-play"></i> Explora 6 Micro-Relatos
+                    </a>
+                    <a href="#recursos" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-cyan-500/30 text-cyan-300 font-semibold hover:scale-105 transition-all text-center flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-chart-line text-cyan-400"></i> Hacer Test (8 Preguntas)
+                    </a>
+                </div>
+
+                <div class="mt-14 pt-8 border-t border-slate-800/80 max-w-2xl mx-auto flex items-center justify-center gap-3 text-xs text-slate-400">
+                    <i class="fa-solid fa-shield-halved text-cyan-400 text-base"></i>
+                    <span><strong>Nota de privacidad:</strong> Los datos de tu test no se guardan en ningún servidor. Todo se calcula al instante en tu navegador de forma 100% confidencial.</span>
+                </div>
+            </div>
+        </section>
+
+                <!-- SECCIÓN 1: HISTORIA PRINCIPAL -->
+        <section id="historia" class="py-24 bg-slate-950 relative overflow-hidden">
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <!-- Encabezado de la sección -->
+                <div class="section-heading text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-cyan-400 mb-2">
+                        Sección 1
+                    </h2>
+
+                    <h3 class="text-3xl sm:text-4xl font-display font-bold text-white mb-4">
+                        Historia principal
+                    </h3>
+
+                    <p class="text-slate-400 text-base">
+                        Un relato sobre la forma en que las redes sociales pueden influir
+                        en nuestra percepción personal y en la necesidad de sentirnos aceptados.
+                    </p>
+                </div>
+
+                <!-- Contenido principal: texto y video -->
+                <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+                    <!-- Texto de la historia -->
+                    <div class="text-historia">
+
+                        <span class="inline-block text-cyan-400 text-sm font-bold uppercase tracking-widest mb-4">
+                            Relato
+                        </span>
+
+                        <h4 class="text-2xl sm:text-3xl font-display font-bold text-white mb-6">
+                            Una realidad editada
+                        </h4>
+
+                        <div class="space-y-5 text-slate-300 leading-relaxed">
+
+                            <p>
+                                Entre las expectativas de una vida perfecta y las exigencias de la realidad, una joven comienza a perder de vista aquello que realmente importa.
+                            </p>
+
+                            <p>
+                                En un mundo donde las apariencias parecen tener más valor que las experiencias, una simple publicación puede convertirse en el reflejo de una lucha silenciosa entre lo que somos y lo que queremos que los demás crean de nosotros.
+                            </p>
+
+                            <p>
+                                Después vuelve a publicar, esperando encontrar en las
+                                reacciones de los demás la seguridad que no encuentra en sí misma.
+                            </p>
+
+                        </div>
+
+                        <!-- Información audiovisual -->
+                        <div class="mt-8 border-l-2 border-cyan-400 pl-5">
+
+                            <h5 class="text-sm font-bold uppercase tracking-widest text-cyan-400 mb-2">
+                                Pieza audiovisual
+                            </h5>
+
+                            <blockquote class="text-slate-200 italic leading-relaxed">
+                                Mientras intentamos mostrar una vida perfecta, ¿cuándo vivimos la nuestra realmente?
+                            </blockquote>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Video de la historia: YouTube -->
+                    <div class="video-historia">
+
+                        <div class="video-marco">
+                            <iframe
+                                src="https://www.youtube.com/embed/xEyH2z1CFzA"
+                                title="Historia principal: Una realidad editada"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SECCIÓN 2: RELATOS -->
+        <section id="relatos" class="py-24 bg-slate-900/60 relative">
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="section-heading text-center max-w-3xl mx-auto mb-16">
+
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-cyan-400 mb-2">
+                        Sección 2
+                    </h2>
+
+                    <h3 class="text-3xl sm:text-4xl font-display font-bold text-white mb-4">
+                        Relatos y Voces profesionales
+                    </h3>
+
+                    <p class="text-slate-400 text-base">
+                        Videos cortos de situaciones en redes y entérate de lo que pasa al otro lado de la pantalla!
+                    </p>
+
+                </div>
+
+                <!-- Paneles expansibles: Relatos y Entrevistas -->
+                <div class="story-panel-controls" role="group" aria-label="Explorar relatos y entrevistas">
+                    <button type="button" class="story-filter-button" data-panel-toggle="stories" aria-controls="stories-panel" aria-expanded="true">
+                        <i class="fa-solid fa-film" aria-hidden="true"></i>
+                        <span>Relatos</span><span class="filter-count">6</span>
+                        <i class="fa-solid fa-chevron-down" data-chevron aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="story-filter-button" data-panel-toggle="interviews" aria-controls="interviews-panel" aria-expanded="false">
+                        <i class="fa-solid fa-microphone-lines" aria-hidden="true"></i>
+                        <span>Entrevistas</span><span class="filter-count">2</span>
+                        <i class="fa-solid fa-chevron-down" data-chevron aria-hidden="true"></i>
+                    </button>
+                </div>
+                <p class="text-center text-xs text-slate-400 mb-4">Elige un apartado para abrirlo; puedes volver a pulsar para contraerlo.</p>
+
+                <!-- Relatos: panel contraído hasta que se active el botón -->
+                <div class="story-accordion-panel is-open" id="stories-panel" aria-hidden="false">
+                    <div class="story-accordion-inner">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="stories-grid">
+
+                    <!-- Relato 1 -->
+                    <div class="story-card glass-card rounded-2xl overflow-hidden hover:border-indigo-500/40 transition-all duration-300 flex flex-col" >
+
+                        <div class="relative h-48 bg-slate-800 overflow-hidden group">
+                            <img src="IMAGENES/escena_01_llegada.png" alt="La trampa de los feeds perfectos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                        </div>
+
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-2">
+                                    1. Solo Cinco Minutos
+                                </h4>
+
+                                <p class="text-slate-300 text-sm mb-4 leading-relaxed">
+                                    Un supuesto descanso de cinco minutos se transforma en horas perdidas deslizando la pantalla sin control.
+                                </p>
+                            </div>
+
+                            <button onclick="openStoryModal(1)" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-indigo-600 text-slate-200 hover:text-white text-xs font-semibold transition flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-film"></i> Ver Micro-Relato
+                            </button>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Relato 2 -->
+                    <div class="story-card glass-card rounded-2xl overflow-hidden hover:border-indigo-500/40 transition-all duration-300 flex flex-col" >
+
+                        <div class="relative h-48 bg-slate-800 overflow-hidden group">
+                            <img src="IMAGENES/foto_perfecta_06_espera.png" alt="Viajes ajenos, vacíos propios" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                        </div>
+
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-2">
+                                    2. La foto perfecta
+                                </h4>
+
+                                <p class="text-slate-300 text-sm mb-4 leading-relaxed">
+                                    Diferencia entre la imagen que proyectamos en las redes y la realidad de nuestras vidas, explorando la presión por la perfección y validación.
+                                </p>
+                            </div>
+
+                            <button onclick="openStoryModal(2)" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-indigo-600 text-slate-200 hover:text-white text-xs font-semibold transition flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-film"></i> Ver Micro-Relato
+                            </button>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Relato 3 -->
+                    <div class="story-card glass-card rounded-2xl overflow-hidden hover:border-indigo-500/40 transition-all duration-300 flex flex-col" >
+
+                        <div class="relative h-48 bg-slate-800 overflow-hidden group">
+                            <img src="IMAGENES/por_que_ella_si_05_compararse.png" alt="Buscando el milésimo like" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                        </div>
+
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-2">
+                                    3. Lo que no ves
+                                </h4>
+
+                                <p class="text-slate-300 text-sm mb-4 leading-relaxed">
+                                    Entre publicaciones que muestran vidas aparentemente perfectas, una joven comienza a cuestionar su propia realidad y la imagen que tiene de sí misma.
+                                </p>
+                            </div>
+
+                            <button onclick="openStoryModal(3)" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-indigo-600 text-slate-200 hover:text-white text-xs font-semibold transition flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-film"></i> Ver Micro-Relato
+                            </button>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Relato 4 -->
+                    <div class="story-card glass-card rounded-2xl overflow-hidden hover:border-indigo-500/40 transition-all duration-300 flex flex-col" >
+
+                        <div class="relative h-48 bg-slate-800 overflow-hidden group">
+                            <img src="IMAGENES/una_notificacion_07_sigue_mirando.png" alt="Notificaciones nocturnas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                        </div>
+
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-2">
+                                    4. Modo distracción
+                                </h4>
+
+                                <p class="text-slate-300 text-sm mb-4 leading-relaxed">
+                                    Entre viajes y vidas perfectas, una joven comienza a preguntarse por qué su realidad no se parece a lo que ve en redes.
+                                </p>
+                            </div>
+
+                            <button onclick="openStoryModal(4)" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-indigo-600 text-slate-200 hover:text-white text-xs font-semibold transition flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-film"></i> Ver Micro-Relato
+                            </button>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Relato 5 -->
+                    <div class="story-card glass-card rounded-2xl overflow-hidden hover:border-indigo-500/40 transition-all duration-300 flex flex-col" >
+
+                        <div class="relative h-48 bg-slate-800 overflow-hidden group">
+                            <img src="IMAGENES/estoy_aqui_06_juntos.png" alt="Máscaras de distorsión facial" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                        </div>
+
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-2">
+                                    5. Juntos, pero lejos
+                                </h4>
+
+                                <p class="text-slate-300 text-sm mb-4 leading-relaxed">
+                                    Aunque comparten el mismo espacio, sus pantallas terminan ocupando toda su atención, dejando en segundo plano la conversación y la conexión entre ellos.
+                                </p>
+                            </div>
+
+                            <button onclick="openStoryModal(5)" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-indigo-600 text-slate-200 hover:text-white text-xs font-semibold transition flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-film"></i> Ver Micro-Relato
+                            </button>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Relato 6 -->
+                    <div class="story-card glass-card rounded-2xl overflow-hidden hover:border-indigo-500/40 transition-all duration-300 flex flex-col" >
+
+                        <div class="relative h-48 bg-slate-800 overflow-hidden group">
+                            <img src="IMAGENES/escena_07_corregida.png" alt="El cuerpo inalcanzable" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                        </div>
+
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-2">
+                                    6. Aún conectada
+                                </h4>
+
+                                <p class="text-slate-300 text-sm mb-4 leading-relaxed">
+                                    La dependencia del celular que convierte la hora de dormir en otro momento para seguir conectado.
+                                </p>
+                            </div>
+
+                            <button onclick="openStoryModal(6)" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-indigo-600 text-slate-200 hover:text-white text-xs font-semibold transition flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-film"></i> Ver Micro-Relato
+                            </button>
+                        </div>
+
+                    </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Entrevistas: aparecen al activar su botón -->
+                <div class="story-accordion-panel" id="interviews-panel" aria-hidden="true" inert>
+                    <div class="story-accordion-inner">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="interviews-grid">
+                                        <!-- Separador de entrevistas -->
+                    <div class="entrevistas-separador col-span-full" aria-label="Sección de entrevistas">
+                        <span class="entrevistas-linea"></span>
+                        <h3>ENTREVISTAS</h3>
+                        <p>Conversaciones y voces sobre nuestra relación con las redes sociales.</p>
+                        <span class="entrevistas-linea"></span>
+                    </div>
+
+                    <!-- Entrevista 7 -->
+                    <div class="story-card glass-card rounded-2xl overflow-hidden hover:border-indigo-500/40 transition-all duration-300 flex flex-col" >
+                        <div class="relative h-48 bg-slate-800 overflow-hidden group">
+                            <img src="IMAGENES/SET GRABACION.png" alt="Entrevista sobre redes sociales" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-2">7. Más allá de la pantalla</h4>
+                                <p class="text-slate-300 text-sm mb-4 leading-relaxed">Expertos reflexionan sobre el impacto de las redes sociales en la autoestima.</p>
+                            </div>
+                            <button onclick="openStoryModal(7)" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-indigo-600 text-slate-200 hover:text-white text-xs font-semibold transition flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-film"></i> Ver entrevista
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Entrevista 8 -->
+                    <div class="story-card glass-card rounded-2xl overflow-hidden hover:border-indigo-500/40 transition-all duration-300 flex flex-col" >
+                        <div class="relative h-48 bg-slate-800 overflow-hidden group">
+                            <img src="IMAGENES/POSCAST ENTREVISTA.png" alt="Entrevista sobre emociones y relaciones" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-2">8. Conexiones que nos marcan</h4>
+                                <p class="text-slate-300 text-sm mb-4 leading-relaxed">Una mirada al efecto de las redes sociales en nuestras emociones y relaciones.</p>
+                            </div>
+                            <button onclick="openStoryModal(8)" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-indigo-600 text-slate-200 hover:text-white text-xs font-semibold transition flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-film"></i> Ver entrevista
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECCIÓN 3: PODCAST INTERACTIVO -->
+        <section id="podcast" class="py-24 relative overflow-hidden">
+            <div class="podcast-ambient podcast-ambient--violet" aria-hidden="true"></div>
+            <div class="podcast-ambient podcast-ambient--cyan" aria-hidden="true"></div>
+            <div class="podcast-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="section-heading text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-cyan-400 mb-2">Sección 3</h2>
+                    <h3 class="text-3xl sm:text-4xl font-display font-bold text-white mb-4">Podcast: "Detrás de la Pantalla"</h3>
+                    <p class="text-slate-400 text-base">
+                        Hackear la pantalla antes de que ella nos hackee a nosotros.
+                    </p>
+                </div>
+
+                <div class="podcast-library-heading" aria-label="Lista de episodios">
+                    <div>
+                        <span class="podcast-kicker">SERIE DE AUDIO · 03 EPISODIOS</span>
+                        <h4>Elige qué quieres escuchar</h4>
+                    </div>
+                    <span class="podcast-library-hint"><i class="fa-solid fa-headphones" aria-hidden="true"></i> Tu recorrido, a tu ritmo</span>
+                </div>
+                <audio id="podcast-audio" preload="metadata" aria-label="Audio del podcast"></audio>
+                <p id="audio-status" class="sr-only" aria-live="polite"></p>
+
+                <!-- Reproductor del Podcast -->
+                <div class="podcast-player glass-card rounded-3xl p-6 md:p-10 border border-slate-700/60 shadow-2xl mb-10 relative overflow-hidden">
+                    <div class="podcast-player-glow" aria-hidden="true"></div>
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-5 relative group">
+                            <div class="aspect-square rounded-2xl overflow-hidden bg-slate-800 shadow-2xl relative">
+                                <img id="podcast-cover" src="IMAGENES/MICROFONO.jpg" alt="Portada de Podcast" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-indigo-950/40 backdrop-blur-[2px]"></div>
+                                <div class="podcast-equalizer" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                                <span class="podcast-cover-caption"><i class="fa-solid fa-wave-square" aria-hidden="true"></i> DETRÁS DE LA PANTALLA</span>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <button id="main-play-btn" onclick="toggleAudioPlay()" aria-label="Reproducir o pausar podcast" class="w-20 h-20 rounded-full bg-indigo-600 text-white flex items-center justify-center text-2xl shadow-2xl shadow-indigo-600/50 hover:scale-110 transition-transform">
+                                        <i class="fa-solid fa-play ml-1" id="main-play-icon"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-7 flex flex-col justify-between">
+                            <div>
+                                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-cyan-500/10 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-3">
+                                    <i class="fa-solid fa-wave-square"></i> Episodio Seleccionado
+                                </span>
+                                <h4 id="podcast-title" class="text-2xl sm:text-3xl font-bold text-white mb-2"></h4>
+                                <p id="podcast-desc" class="text-slate-300 text-sm leading-relaxed mb-6">
+                                    Entramos a las redes por unos minutos y terminamos perdiendo horas. ¿El celular está bajo nuestro control o nosotros bajo el suyo?
+                                </p>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div class="space-y-2">
+                                    <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden cursor-pointer" id="progress-container" role="slider" tabindex="0" aria-label="Progreso del episodio" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" onclick="seekAudio(event)">
+                                        <div id="progress-bar" class="bg-gradient-to-r from-indigo-500 to-cyan-400 h-full w-0 transition-all duration-100"></div>
+                                    </div>
+                                    <div class="flex justify-between text-xs text-slate-400 font-mono">
+                                        <span id="current-time" aria-live="off">00:00</span>
+                                        <span id="duration-time">00:00</span>
+                                    </div>
+                                </div>
+
+                                <div class="podcast-transport flex items-center justify-between pt-2">
+                                    <div class="flex items-center gap-4">
+                                        <button onclick="skipTime(-10)" class="p-2 rounded-lg text-slate-400 hover:text-white transition" title="Retroceder 10s">
+                                            <i class="fa-solid fa-rotate-left text-lg"></i>
+                                        </button>
+                                        <button onclick="toggleAudioPlay()" class="px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition flex items-center gap-2">
+                                            <i class="fa-solid fa-play" id="sub-play-icon"></i>
+                                            <span id="play-text">Reproducir</span>
+                                        </button>
+                                        <button onclick="skipTime(10)" class="p-2 rounded-lg text-slate-400 hover:text-white transition" title="Adelantar 10s">
+                                            <i class="fa-solid fa-rotate-right text-lg"></i>
+                                        </button>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <i class="fa-solid fa-volume-high text-slate-400 text-xs"></i>
+                                        <input type="range" id="volume-control" min="0" max="1" step="0.1" value="0.8" aria-label="Control de volumen" class="w-20 accent-indigo-500 cursor-pointer">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Biblioteca de episodios: permanece visible durante la reproducción -->
+                <div class="episode-library">
+                <div class="episode-library-grid grid grid-cols-1 md:grid-cols-3 gap-5">
+                    <div onclick="selectEpisode(0)" role="button" tabindex="0" class="episode-card glass-card p-5 rounded-2xl cursor-pointer hover:border-indigo-500/50 transition border border-indigo-500/40 bg-indigo-950/20">
+                        <div class="flex items-center gap-4 mb-3">
+                            <span class="episode-number w-8 h-8 rounded-lg bg-indigo-600/30 text-indigo-400 flex items-center justify-center font-bold text-xs">01</span>
+                            <div>
+                                <h5 class="text-white font-semibold text-sm">¿Quién tiene el control?</h5>
+                                <span class="text-slate-400 text-xs">05:30 mins</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-300 text-xs line-clamp-2">
+                            Cuando el celular deja de ser una herramienta y empieza a controlar nuestra atención.
+                        </p>
+                        <span class="episode-card-cue"><i class="fa-solid fa-play" aria-hidden="true"></i><span>Escuchar episodio</span></span>
+                    </div>
+
+                    <div onclick="selectEpisode(1)" role="button" tabindex="0" class="episode-card glass-card p-5 rounded-2xl cursor-pointer hover:border-indigo-500/50 transition border border-slate-800">
+                        <div class="flex items-center gap-4 mb-3">
+                            <span class="episode-number w-8 h-8 rounded-lg bg-slate-800 text-slate-400 flex items-center justify-center font-bold text-xs">02</span>
+                            <div>
+                                <h5 class="text-white font-semibold text-sm">Identidad y tendencias</h5>
+                                <span class="text-slate-400 text-xs">06:00 mins</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-300 text-xs line-clamp-2">
+                            ¿Tus gustos son realmente tuyos o los aprendiste de las redes?
+                        </p>
+                        <span class="episode-card-cue"><i class="fa-solid fa-play" aria-hidden="true"></i><span>Escuchar episodio</span></span>
+                    </div>
+
+                    <div onclick="selectEpisode(2)" role="button" tabindex="0" class="episode-card glass-card p-5 rounded-2xl cursor-pointer hover:border-indigo-500/50 transition border border-slate-800">
+                        <div class="flex items-center gap-4 mb-3">
+                            <span class="episode-number w-8 h-8 rounded-lg bg-slate-800 text-slate-400 flex items-center justify-center font-bold text-xs">03</span>
+                            <div>
+                                <h5 class="text-white font-semibold text-sm">La vida no tiene que verse perfecta</h5>
+                                <span class="text-slate-400 text-xs">06:00 mins</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-300 text-xs line-clamp-2">
+                            Tu valor no depende de parecerte a la vida que alguien publicó.
+                        </p>
+                        <span class="episode-card-cue"><i class="fa-solid fa-play" aria-hidden="true"></i><span>Escuchar episodio</span></span>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCRIPT DE FUNCIONALIDAD Y CONFIGURACIÓN DE AUDIOS -->
+<script>
+    const episodes = [
+        {
+            title: "¿Quién tiene el control?",
+            desc: "Cuando el celular deja de ser una herramienta y empieza a controlar nuestra atención.",
+            audioSrc: "AUDIOS/AUDIO 1.mp3"
+        },
+        {
+            title: "Identidad y tendencias",
+            desc: "¿Tus gustos son realmente tuyos o los aprendiste de las redes?",
+            audioSrc: "AUDIOS/AUDIO 2.mp3"
+        },
+        {
+            title: "La vida no tiene que verse perfecta",
+            desc: "Tu valor no depende de parecerte a la vida que alguien publicó.",
+            audioSrc: "AUDIOS/AUDIO 3.mp3"
+        }
+    ];
+
+    let currentEpisodeIndex = 0;
+    const audio = document.getElementById('podcast-audio');
+    const playBtnIcon = document.getElementById('main-play-icon');
+    const subPlayIcon = document.getElementById('sub-play-icon');
+    const playText = document.getElementById('play-text');
+    const titleEl = document.getElementById('podcast-title');
+    const descEl = document.getElementById('podcast-desc');
+    const progressBar = document.getElementById('progress-bar');
+    const currentTimeEl = document.getElementById('current-time');
+    const durationTimeEl = document.getElementById('duration-time');
+    const volumeControl = document.getElementById('volume-control');
+
+    function formatTime(seconds) {
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins < 10 ? '0' : ''}${mins}:${secs < 10 ? '0' : ''}${secs}`;
+    }
+
+    function loadEpisode(index) {
+        currentEpisodeIndex = index;
+        const episode = episodes[index];
+
+        titleEl.textContent = episode.title;
+        descEl.textContent = episode.desc;
+        audio.src = episode.audioSrc;
+        audio.load();
+
+        const cards = document.querySelectorAll('.episode-card');
+
+        cards.forEach((card, i) => {
+            const isCurrent = i === index;
+            card.classList.toggle("is-current", isCurrent);
+            card.setAttribute("aria-pressed", String(isCurrent));
+        });
+    }
+
+    function selectEpisode(index) {
+        loadEpisode(index);
+        const status = document.getElementById('audio-status');
+        if (status) status.textContent = `Preparando episodio ${index + 1}: ${episodes[index].title}`;
+        audio.play()
+            .then(() => {
+                updatePlayState(true);
+                if (status) status.textContent = `Reproduciendo episodio ${index + 1}: ${episodes[index].title}`;
+            })
+            .catch(() => {
+                updatePlayState(false);
+                if (status) status.textContent = 'No se pudo reproducir este episodio. Comprueba que el archivo de audio esté disponible.';
+            });
+    }
+
+    function toggleAudioPlay() {
+        if (audio.paused) {
+            if (!audio.src) loadEpisode(0);
+            audio.play()
+                .then(() => updatePlayState(true))
+                .catch(() => {
+                    updatePlayState(false);
+                    const status = document.getElementById('audio-status');
+                    if (status) status.textContent = 'No se pudo reproducir este episodio. Comprueba que el archivo de audio esté disponible.';
+                });
+        } else {
+            audio.pause();
+            updatePlayState(false);
+        }
+    }
+
+    function updatePlayState(isPlaying) {
+        const mainPlayButton = document.getElementById('main-play-btn');
+        if (mainPlayButton) {
+            mainPlayButton.setAttribute('aria-pressed', String(isPlaying));
+            mainPlayButton.setAttribute('aria-label', isPlaying ? 'Pausar podcast' : 'Reproducir podcast');
+        }
+        if (isPlaying) {
+            playBtnIcon.className = "fa-solid fa-pause ml-0";
+            subPlayIcon.className = "fa-solid fa-pause";
+            playText.textContent = "Pausar";
+        } else {
+            playBtnIcon.className = "fa-solid fa-play ml-1";
+            subPlayIcon.className = "fa-solid fa-play";
+            playText.textContent = "Reproducir";
+        }
+    }
+
+    function skipTime(seconds) {
+        audio.currentTime += seconds;
+    }
+
+    function seekAudio(event) {
+        const container = document.getElementById('progress-container');
+        const rect = container.getBoundingClientRect();
+        const pos = (event.clientX - rect.left) / container.offsetWidth;
+        audio.currentTime = pos * audio.duration;
+    }
+
+    audio.addEventListener('timeupdate', () => {
+        if (audio.duration) {
+            const progressPercent = (audio.currentTime / audio.duration) * 100;
+            progressBar.style.width = `${progressPercent}%`;
+            currentTimeEl.textContent = formatTime(audio.currentTime);
+        }
+    });
+
+    audio.addEventListener('loadedmetadata', () => {
+        durationTimeEl.textContent = formatTime(audio.duration);
+    });
+
+    audio.addEventListener('ended', () => {
+        updatePlayState(false);
+        progressBar.style.width = '0%';
+    });
+
+    audio.addEventListener('error', () => {
+        updatePlayState(false);
+        const status = document.getElementById('audio-status');
+        if (status) status.textContent = 'No se pudo cargar este audio. Revisa que el MP3 correspondiente esté en la carpeta del sitio.';
+    });
+
+    volumeControl.addEventListener('input', (e) => {
+        audio.volume = e.target.value;
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+        loadEpisode(0);
+    });
+</script>
+
+
+<!-- SECCIÓN 4: RECURSOS, AUTODIAGNÓSTICO Y KIT DIGITAL -->
+<section id="recursos" class="py-24 bg-slate-900/60 relative">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="section-heading text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-xs font-bold uppercase tracking-widest text-cyan-400 mb-2">
+                Sección 4
+            </h2>
+
+            <h3 class="text-3xl sm:text-4xl font-display font-bold text-white mb-4">
+                Autodiagnóstico y Kit de Vida Digital Sana
+            </h3>
+
+            <p class="text-slate-400 text-base">
+                Responde a este test de 8 preguntas en un lenguaje súper cercano y descubre tu mapa gráfico de hábitos. Al finalizar, accede a un kit descargable escrito especialmente para ti.
+            </p>
+        </div>
+
+
+        <div class="resources-layout">
+<!-- Formulario de 8 preguntas -->
+            <div class="lg:col-span-7 glass-card p-6 sm:p-8 rounded-3xl border border-slate-700/60">
+
+                <button id="quiz-toggle" type="button" class="quiz-toggle" aria-controls="quiz-content" aria-expanded="true">
+                        <span class="quiz-toggle-main">
+                            <span class="quiz-toggle-icon"><i class="fa-solid fa-sliders text-cyan-300" aria-hidden="true"></i></span>
+                            <span>
+                                <strong>Test de Hábitos Digitales</strong>
+                                <small>8 preguntas sencillas • resultados con gráfico de habilidades</small>
+                            </span>
+                        </span>
+                        <span class="quiz-toggle-side">
+                            <span class="quiz-anonymous"><i class="fa-solid fa-user-shield" aria-hidden="true"></i> 100% Anónimo</span>
+                            <i class="fa-solid fa-chevron-down quiz-toggle-chevron" aria-hidden="true"></i>
+                        </span>
+                    </button>
+
+                    <div id="quiz-content" class="quiz-collapsible-content is-open" aria-hidden="false">
+                    <form id="quiz-form" onsubmit="event.preventDefault(); calculateQuizResult(event); return false;" class="space-y-6">
+
+                    <!-- Pregunta 1 -->
+                    <fieldset class="space-y-2 bg-slate-900/40 p-4 rounded-2xl border border-slate-800 quiz-question" aria-labelledby="quiz-question-1-legend">
+                        <legend id="quiz-question-1-legend" class="text-sm font-semibold text-slate-200 block">
+                            1. ¿Te pasa que te quedas mirando historias o feeds de otros y sientes que tu vida está como estancada o aburrida?
+                        </legend>
+
+                        <div class="quiz-options grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2 pt-1">
+                            <label class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 cursor-pointer hover:border-indigo-500 text-xs text-slate-300 flex items-center gap-2 transition">
+                                <input type="radio" name="q1" value="1" data-dim="comparacion" required class="accent-indigo-500">
+                                Casi nunca, estoy super fresh
+                            </label>
+
+                            <label class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 cursor-pointer hover:border-indigo-500 text-xs text-slate-300 flex items-center gap-2 transition">
+                                <input type="radio" name="q1" value="2" data-dim="comparacion" class="accent-indigo-500">
+                                A veces me pega el bajón
+                            </label>
+
+                            <label class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 cursor-pointer hover:border-indigo-500 text-xs text-slate-300 flex items-center gap-2 transition">
+                                <input type="radio" name="q1" value="3" data-dim="comparacion" class="accent-indigo-500">
+                                Todo el tiempo me comparo
+                            </label>
+                        </div>
+                    </fieldset>
+
+
+                    <!-- Pregunta 2 -->
+                    <fieldset class="space-y-2 bg-slate-900/40 p-4 rounded-2xl border border-slate-800 quiz-question" aria-labelledby="quiz-question-2-legend">
+                        <legend id="quiz-question-2-legend" class="text-sm font-semibold text-slate-200 block">
+                            2. Cuando subes una foto o story, ¿estás entrando cada 5 minutos a ver quién le dio me gusta o quién la vio?
+                        </legend>
+
+                        <div class="quiz-options grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2 pt-1">
+                            <label class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 cursor-pointer hover:border-indigo-500 text-xs text-slate-300 flex items-center gap-2 transition">
+                                <input type="radio" name="q2" value="1" data-dim="validacion" required class="accent-indigo-500">
+                                Publico y me olvido por completo
+                            </label>
+
+                            <label class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 cursor-pointer hover:border-indigo-500 text-xs text-slate-300 flex items-center gap-2 transition">
+                                <input type="radio" name="q2" value="2" data-dim="validacion" class="accent-indigo-500">
+                                Reviso un par de veces por curioso
+                            </label>
+
+                            <label class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 cursor-pointer hover:border-indigo-500 text-xs text-slate-300 flex items-center gap-2 transition">
+                                <input type="radio" name="q2" value="3" data-dim="validacion" class="accent-indigo-500">
+                                Me da ansiedad si no hay interacción
+                            </label>
+                        </div>
+                    </fieldset>
+
+
+                    <!-- Pregunta 3 -->
+                    <fieldset class="space-y-2 bg-slate-900/40 p-4 rounded-2xl border border-slate-800 quiz-question" aria-labelledby="quiz-question-3-legend">
+                        <legend id="quiz-question-3-legend" class="text-sm font-semibold text-slate-200 block">
+                            3. ¿Qué es lo primero que haces apenas abres los ojos en la mañana?
+                        </legend>
+
+                        <div class="quiz-options grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2 pt-1">
+                            <label class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 cursor-pointer hover:border-indigo-500 text-xs text-slate-300 flex items-center gap-2 transition">
+                                <input type="radio" name="q3" value="1" data-dim="impulso" required class="accent-indigo-500">
+                                Estirarme, tomar agua y respirar
+                            </label>
+
+                            <label class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 cursor-pointer hover:border-indigo-500 text-xs text-slate-300 flex items-center gap-2 transition">
+                                <input type="radio" name="q3" value="2" data-dim="impulso" class="accent-indigo-500">
+                                Miro la hora y mensajes rápido
+                            </label>
+
+                            <label class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 cursor-pointer hover:border-indigo-500 text-xs text-slate-300 flex items-center gap-2 transition">
+                                <input type="radio" name="q3" value="3" data-dim="impulso" class="accent-indigo-500">
+                                Hago scroll infinito en la cama
+                            </label>
+                        </div>
+                    </fieldset>
+
+
+                    <!-- Pregunta 4 -->
+                    <fieldset class="space-y-2 bg-slate-900/40 p-4 rounded-2xl border border-slate-800 quiz-question" aria-labelledby="quiz-question-4-legend">
+                        <legend id="quiz-question-4-legend" class="text-sm font-semibold text-slate-200 block">
+                            4. Si vas a tomarte una foto, ¿sientes incomodidad si no usas algún filtro de rostro o retoque?
+                        </legend>
+
+                        <div class="quiz-options grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2 pt-1">
+                            <label class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 cursor-pointer hover:border-indigo-500 text-xs text-slate-300 flex items-center gap-2 transition">
+                                <input type="radio" name="q4" value="1" data-dim="autoimagen" required class="accent-indigo-500">
+                                Me da igual, al natural 100%
+                            </label>
+
+                            <label class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 cursor-pointer hover:border-indigo-500 text-xs text-slate-300 flex items-center gap-2 transition">
+                                <input type="radio" name="q4" value="2" data-dim="autoimagen" class="accent-indigo-500">
+                                Prefiero un filtro suave
+                            </label>
+
+                            <label class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 cursor-pointer hover:border-indigo-500 text-xs text-slate-300 flex items-center gap-2 transition">
+                                <input type="radio" name="q4" value="3" data-dim="autoimagen" class="accent-indigo-500">
+                                Sin filtro ni loco/a me muestro
+                            </label>
+                        </div>
+                    </fieldset>
+
+                                                <!-- Pregunta 5 -->
+                            <fieldset class="space-y-2 bg-slate-900/40 p-4 rounded-2xl border border-slate-800 quiz-question" aria-labelledby="quiz-question-5-legend">
+                                <legend id="quiz-question-5-legend" class="text-sm font-semibold text-slate-200 block">5. Ves que tus amigos salieron sin ti o están en un plan genial... ¿Cómo te sientes?</legend>
+                                <div class="quiz-options grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2 pt-1">
+                                    <label class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 cursor-pointer hover:border-indigo-500 text-xs text-slate-300 flex items-center gap-2 transition">
+                                        <input type="radio" name="q5" value="1" data-dim="comparacion" required class="accent-indigo-500"> Me alegro por ellos y sigo en lo mío
+                                    </label>
+                                    <label class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 cursor-pointer hover:border-indigo-500 text-xs text-slate-300 flex items-center gap-2 transition">
+                                        <input type="radio" name="q5" value="2" data-dim="comparacion" class="accent-indigo-500"> Me da cierta curiosidad/chisme
+                                    </label>
+                                    <label class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 cursor-pointer hover:border-indigo-500 text-xs text-slate-300 flex items-center gap-2 transition">
+                                        <input type="radio" name="q5" value="3" data-dim="comparacion" class="accent-indigo-500"> Me entra vació y rabia de perdérmelo
+                                    </label>
+                                </div>
+                            </fieldset>
+
+                            <!-- Pregunta 6 -->
+                            <fieldset class="space-y-2 bg-slate-900/40 p-4 rounded-2xl border border-slate-800 quiz-question" aria-labelledby="quiz-question-6-legend">
+                                <legend id="quiz-question-6-legend" class="text-sm font-semibold text-slate-200 block">6. Dices "solo voy a mirar 5 minutos TikTok/Reels" y de repente se te fueron 2 horas de noche. ¿Te pasa seguido?</legend>
+                                <div class="quiz-options grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2 pt-1">
+                                    <label class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 cursor-pointer hover:border-indigo-500 text-xs text-slate-300 flex items-center gap-2 transition">
+                                        <input type="radio" name="q6" value="1" data-dim="tiempo" required class="accent-indigo-500"> Casi nunca, pongo mi límite
+                                    </label>
+                                    <label class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 cursor-pointer hover:border-indigo-500 text-xs text-slate-300 flex items-center gap-2 transition">
+                                        <input type="radio" name="q6" value="2" data-dim="tiempo" class="accent-indigo-500"> Pasa una que otra vez a la semana
+                                    </label>
+                                    <label class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 cursor-pointer hover:border-indigo-500 text-xs text-slate-300 flex items-center gap-2 transition">
+                                        <input type="radio" name="q6" value="3" data-dim="tiempo" class="accent-indigo-500"> Es mi rutina de todas las noches
+                                    </label>
+                                </div>
+                            </fieldset>
+
+                            <!-- Pregunta 7 -->
+                            <fieldset class="space-y-2 bg-slate-900/40 p-4 rounded-2xl border border-slate-800 quiz-question" aria-labelledby="quiz-question-7-legend">
+                                <legend id="quiz-question-7-legend" class="text-sm font-semibold text-slate-200 block">7. ¿Te has descubierto discutiendo en comentarios con desconocidos o respondiendo con rabia cuando algo te indigna?</legend>
+                                <div class="quiz-options grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2 pt-1">
+                                    <label class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 cursor-pointer hover:border-indigo-500 text-xs text-slate-300 flex items-center gap-2 transition">
+                                        <input type="radio" name="q7" value="1" data-dim="impulso" required class="accent-indigo-500"> Paso de largo, cero drama
+                                    </label>
+                                    <label class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 cursor-pointer hover:border-indigo-500 text-xs text-slate-300 flex items-center gap-2 transition">
+                                        <input type="radio" name="q7" value="2" data-dim="impulso" class="accent-indigo-500"> Dejo mi punto de vista y me salgo
+                                    </label>
+                                    <label class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 cursor-pointer hover:border-indigo-500 text-xs text-slate-300 flex items-center gap-2 transition">
+                                        <input type="radio" name="q7" value="3" data-dim="impulso" class="accent-indigo-500"> Me engatillo fácil a debatir con rabia
+                                    </label>
+                                </div>
+                            </fieldset>
+
+                            <!-- Pregunta 8 -->
+                            <fieldset class="space-y-2 bg-slate-900/40 p-4 rounded-2xl border border-slate-800 quiz-question" aria-labelledby="quiz-question-8-legend">
+                                <legend id="quiz-question-8-legend" class="text-sm font-semibold text-slate-200 block">8. Si se cae el WiFi o apagas el teléfono durante varias horas, ¿cómo te sientes?</legend>
+                                <div class="quiz-options grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2 pt-1">
+                                    <label class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 cursor-pointer hover:border-indigo-500 text-xs text-slate-300 flex items-center gap-2 transition">
+                                        <input type="radio" name="q8" value="1" data-dim="ansiedad" required class="accent-indigo-500"> Paz total, un descanso de pantalla
+                                    </label>
+                                    <label class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 cursor-pointer hover:border-indigo-500 text-xs text-slate-300 flex items-center gap-2 transition">
+                                        <input type="radio" name="q8" value="2" data-dim="ansiedad" class="accent-indigo-500"> Un poco de aburrimiento pasajero
+                                    </label>
+                                    <label class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 cursor-pointer hover:border-indigo-500 text-xs text-slate-300 flex items-center gap-2 transition">
+                                        <input type="radio" name="q8" value="3" data-dim="ansiedad" class="accent-indigo-500"> Desesperación y necesidad de reconectarme
+                                    </label>
+                                </div>
+                            </fieldset>
+
+                            <button id="quiz-submit" type="submit" aria-controls="quiz-result" class="w-full py-4 rounded-2xl bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-500 hover:to-cyan-500 text-white font-bold text-sm transition shadow-xl shadow-indigo-600/30 flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-chart-column"></i> Ver Mi Gráfico y Diagnóstico Digital
+                            </button>
+                        </form>
+
+                        <!-- RESULTADOS CON GRÁFICA (Chart.js) -->
+                        <div id="quiz-result" aria-live="polite" tabindex="-1" class="hidden mt-8 p-6 sm:p-8 rounded-3xl bg-slate-900/90 border border-indigo-500/50 space-y-6 animate-in fade-in zoom-in duration-300">
+                            <div class="text-center space-y-2">
+                                <span class="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 text-xs font-bold uppercase tracking-widest">
+                                    Tus Resultados en Tiempo Real
+                                </span>
+                                <h5 class="text-2xl font-bold text-white" id="result-title">Cargando Diagnóstico...</h5>
+                                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl mx-auto" id="result-desc"></p>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center pt-4 border-t border-slate-800">
+                                <!-- Gráfica de Radar Chart.js -->
+                                <div class="bg-slate-950/60 p-4 rounded-2xl border border-slate-800 flex flex-col items-center">
+                                    <h6 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 text-center">
+                                        <i class="fa-solid fa-chart-pie text-cyan-400"></i> Mapa de habilidades de bienestar digital
+                                    </h6>
+                                    <div class="balance-chart-container w-full h-72 sm:h-80 relative flex items-center justify-center overflow-visible">
+                                        <canvas id="dimensionsRadarChart"></canvas>
+                                    </div>
+                                </div>
+
+                                <!-- Métricas breves del mapa de dependencia digital -->
+                                <div class="space-y-3 bg-slate-950/60 p-4 rounded-2xl border border-slate-800">
+                                    <h6 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
+                                        <i class="fa-solid fa-bars-staggered text-indigo-400"></i> Tus habilidades de bienestar
+                                    </h6>
+
+                                    <div class="digital-metric"><div class="flex justify-between text-xs font-medium text-slate-300 mb-1"><span>Gestión del tiempo</span><span id="bar-val-tiempo" class="text-cyan-400 font-bold">0%</span></div><div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden"><div id="bar-fill-tiempo" class="bg-gradient-to-r from-cyan-500 to-indigo-500 h-full w-0 transition-all duration-500"></div></div></div>
+                                    <div class="digital-metric"><div class="flex justify-between text-xs font-medium text-slate-300 mb-1"><span>Pausa consciente</span><span id="bar-val-impulso" class="text-cyan-400 font-bold">0%</span></div><div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden"><div id="bar-fill-impulso" class="bg-gradient-to-r from-indigo-500 to-cyan-500 h-full w-0 transition-all duration-500"></div></div></div>
+                                    <div class="digital-metric"><div class="flex justify-between text-xs font-medium text-slate-300 mb-1"><span>Calma emocional</span><span id="bar-val-ansiedad" class="text-cyan-400 font-bold">0%</span></div><div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden"><div id="bar-fill-ansiedad" class="bg-gradient-to-r from-purple-500 to-pink-500 h-full w-0 transition-all duration-500"></div></div></div>
+                                    <div class="digital-metric"><div class="flex justify-between text-xs font-medium text-slate-300 mb-1"><span>Mirada propia</span><span id="bar-val-comparacion" class="text-cyan-400 font-bold">0%</span></div><div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden"><div id="bar-fill-comparacion" class="bg-gradient-to-r from-indigo-500 to-purple-500 h-full w-0 transition-all duration-500"></div></div></div>
+                                    <div class="digital-metric"><div class="flex justify-between text-xs font-medium text-slate-300 mb-1"><span>Autonomía digital</span><span id="bar-val-validacion" class="text-cyan-400 font-bold">0%</span></div><div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden"><div id="bar-fill-validacion" class="bg-gradient-to-r from-purple-500 to-pink-500 h-full w-0 transition-all duration-500"></div></div></div>
+                                    <div class="digital-metric"><div class="flex justify-between text-xs font-medium text-slate-300 mb-1"><span>Autoimagen positiva</span><span id="bar-val-autoimagen" class="text-cyan-400 font-bold">0%</span></div><div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden"><div id="bar-fill-autoimagen" class="bg-gradient-to-r from-pink-500 to-rose-500 h-full w-0 transition-all duration-500"></div></div></div>
+                                </div>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-indigo-950/40 border border-indigo-500/30 text-center">
+                                <p class="text-xs text-indigo-200 mb-3">
+                                    ¿Quieres herramientas prácticas para balancear tu vida digital sin renunciar a tus redes?
+                                </p>
+                                <a href="#kit-digital-section" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold transition">
+                                    <i class="fa-solid fa-arrow-down"></i> Descubre tu Kit Digital Personalizado
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    </div>
+                <aside class="kit-card lg:col-span-5" id="kit-digital-section" aria-labelledby="kit-title">
+                    <div>
+                        <span class="inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[.18em] text-cyan-300">
+                            <i class="fa-solid fa-compass" aria-hidden="true"></i> Tu siguiente paso
+                        </span>
+                        <h4 id="kit-title" class="text-2xl font-bold text-white mt-4">Una semana con más equilibrio</h4>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        No tienes que borrar tus redes. La idea es que vuelvas a elegir <strong>cuándo entrar, para qué y cuándo salir</strong>. Empieza con un cambio pequeño; lo que importa es que te sirva en tu vida real.
+                    </p>
+
+                    <details class="action-accordion">
+                        <summary><span><i class="fa-solid fa-seedling text-cyan-400 mr-2" aria-hidden="true"></i>Tres acciones para comenzar</span></summary>
+                        <div class="action-list">
+                            <div class="action-item">
+                                <strong><i class="fa-solid fa-circle-check text-emerald-400" aria-hidden="true"></i>Haz una pausa antes de abrir</strong>
+                                <p>Respira y pregúntate: «¿Qué vine a hacer aquí?».</p>
+                            </div>
+                            <div class="action-item">
+                                <strong><i class="fa-solid fa-circle-check text-emerald-400" aria-hidden="true"></i>Cuida lo que ves</strong>
+                                <p>Silencia una cuenta que te haga sentir mal o te empuje a compararte.</p>
+                            </div>
+                            <div class="action-item">
+                                <strong><i class="fa-solid fa-circle-check text-emerald-400" aria-hidden="true"></i>Regálate un rato sin pantalla</strong>
+                                <p>Prueba 30 minutos sin celular antes de dormir.</p>
+                            </div>
+                        </div>
+                    </details>
+
+                    <div class="p-4 rounded-2xl bg-indigo-950/40 border border-indigo-500/30">
+                        <h5 class="text-xs font-bold text-cyan-300 mb-1"><i class="fa-regular fa-calendar-check mr-1" aria-hidden="true"></i>El reto: una semana, un cambio</h5>
+                        <p class="text-[11px] text-slate-300 leading-relaxed">Elige una de estas acciones y pruébala durante 7 días. Al final, pregúntate: «¿Qué se sintió distinto?».</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-gradient-to-r from-indigo-950/60 to-purple-950/60 border border-indigo-500/30 text-center space-y-2">
+                        <i class="fa-solid fa-heart text-pink-400 text-lg animate-pulse-slow" aria-hidden="true"></i>
+                        <p class="text-xs text-indigo-200 italic font-medium leading-relaxed">«Tu valor no depende de lo que haces en una pantalla. La meta no es usar menos por obligación: es poder elegir y estar presente en lo que sí te importa.»</p>
+                    </div>
+
+                    <div class="pdf-download-card">
+                        <div class="pdf-download-heading">
+                            <span class="pdf-download-icon"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></span>
+                            <div>
+                                <h5>Guía práctica de bienestar digital</h5>
+                                <p>Ideas y herramientas para navegar con más intención. PDF incluido en esta carpeta.</p>
+                            </div>
+                        </div>
+                        <a href="guia-navegacion-digital.pdf" download="guia-navegacion-digital.pdf">
+                            <i class="fa-solid fa-download" aria-hidden="true"></i> Descargar la guía en PDF
+                        </a>
+                    </div>
+                </aside>
+        </div>
+</div>
+        </section>
+
+        <!-- NUEVA SECCIÓN: ANALÍTICA ANÓNIMA Y REACCIÓN DE VISITANTES -->
+        <section id="analisis-visitas" class="analytics-section py-20 sm:py-24 relative" aria-labelledby="analytics-title">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="section-heading text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-cyan-300 mb-2">Tu experiencia también cuenta</h2>
+                    <h3 id="analytics-title" class="text-3xl sm:text-4xl font-display font-bold text-white mb-4">Actividad y bienestar en la página</h3>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">Un resumen anónimo de las visitas de hoy, el recorrido por cada apartado y las reacciones. ¿Te gustó esta experiencia?</p>
+                </div>
+                <div class="analytics-layout">
+                    <div class="analytics-card analytics-dashboard">
+                        <div class="analytics-card-heading">
+                            <div>
+                                <span class="analytics-kicker"><i class="fa-solid fa-chart-pie" aria-hidden="true"></i> Panel de actividad</span>
+                                <h4>Recorrido de visitantes</h4>
+                                <p>Distribución porcentual de visualizaciones por apartado. Toca una categoría para mostrarla u ocultarla.</p>
+                            </div>
+                            <span class="analytics-live-badge"><span aria-hidden="true"></span> Actualización en vivo</span>
+                        </div>
+                        <div class="analytics-summary" aria-live="polite">
+                            <div class="analytics-stat"><span>Visitas a la página hoy</span><strong id="analytics-total-visits">0</strong></div>
+                            <div class="analytics-stat"><span>Me gusta</span><strong id="analytics-total-likes">0</strong></div>
+                            <div class="analytics-stat"><span>No me gusta</span><strong id="analytics-total-dislikes">0</strong></div>
+                        </div>
+                        <div class="analytics-chart-wrap"><canvas id="visitor-analytics-chart" role="img" aria-label="Gráfica circular interactiva con la proporción de visualizaciones de cada apartado"></canvas></div>
+                        <div id="visitor-analytics-legend" class="analytics-chart-legend" aria-label="Porcentaje y número de visualizaciones por apartado"></div>
+                        <p id="analytics-status" class="analytics-status" role="status">Preparando la gráfica interactiva…</p>
+                        <p class="analytics-privacy"><i class="fa-solid fa-user-shield" aria-hidden="true"></i> No se guardan nombres, correos, direcciones IP ni respuestas del autodiagnóstico. Solo se acumulan conteos de visualizaciones por apartado.</p>
+                    </div>
+                    <aside class="analytics-card analytics-reaction" aria-labelledby="reaction-title">
+                        <div class="analytics-reaction-icon" aria-hidden="true"><i class="fa-solid fa-heart"></i></div>
+                        <span class="analytics-kicker">Queremos escucharte</span>
+                        <h4 id="reaction-title">¿Te gustó la página?</h4>
+                        <p>Tu opinión es anónima y nos ayuda a mejorar esta experiencia.</p>
+                        <div class="analytics-reaction-buttons">
+                            <button type="button" class="analytics-reaction-button analytics-like" data-reaction="like" aria-pressed="false">
+                                <i class="fa-solid fa-thumbs-up" aria-hidden="true"></i><span>Me gusta</span>
+                            </button>
+                            <button type="button" class="analytics-reaction-button analytics-dislike" data-reaction="dislike" aria-pressed="false">
+                                <i class="fa-solid fa-thumbs-down" aria-hidden="true"></i><span>No me gusta</span>
+                            </button>
+                        </div>
+                        <p id="reaction-status" class="analytics-reaction-status" role="status" aria-live="polite">Puedes dejar una reacción por visita.</p>
+                        <div class="analytics-reaction-note"><i class="fa-solid fa-lock" aria-hidden="true"></i><span>La reacción se suma al reporte agregado; no se envía ningún dato personal.</span></div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+        <!-- FIN DE LA NUEVA SECCIÓN DE ANALÍTICA -->
+    </main>
+                    
+
+
+
+
+    <!-- Footer / Pie de página -->
+    <footer class="footer-proyecto">
+        <div class="footer-contenedor">
+
+            <!-- IZQUIERDA: Logo e información académica -->
+            <div class="footer-academico">
+                <img
+    src="./IMAGENES/LOGO FACULTAD SIN FONDO.png"
+    alt="Logo de la Universidad Santiago de Cali"
+    class="footer-logo-universidad"
+>
+
+                <div class="footer-datos-academicos">
+                    <h3>Información académica</h3>
+
+                    <p><strong>Programa:</strong></p>
+                    <p>Tecnología en Producción Transmedia</p>
+
+                    <p><strong>Facultad:</strong></p>
+                    <p>Facultad de Humanidades y Artes</p>
+
+                    <p class="footer-nombre-universidad">
+                        Universidad Santiago de Cali
+                    </p>
+                </div>
+            </div>
+
+            <!-- CENTRO: Integrantes -->
+            <div class="footer-integrantes-bloque">
+                <h3>Más que un perfil.</h3>
+                <p>Una experiencia transmedia para mirar más</p>
+                    <p>allá de la pantalla y reconectar con quien eres.</p>
+                
+            </div>
+
+            <!-- DERECHA: Licencia Creative Commons -->
+            <div class="footer-licencia">
+                <h3>Licencia y uso del contenido</h3>
+                 <p>© 2026 Licencia <strong>CC BY-NC-SA</strong></p>
+                    <p>Laura Camila Otálvaro Medina. </p>
+                   <p>Natalia Parra Rodriguez.</p>
+               
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Modal de Micro-Relatos en Video -->
+    <div id="story-modal" class="fixed inset-0 z-50 hidden bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="glass-card max-w-2xl w-full rounded-3xl overflow-hidden border border-slate-700 relative animate-in fade-in zoom-in duration-200">
+            <div class="p-5 border-b border-slate-800 flex items-center justify-between">
+                <div>
+                    <h4 id="modal-title" class="text-lg font-bold text-white"></h4>
+                </div>
+
+                <button onclick="closeStoryModal()" aria-label="Cerrar modal" class="w-8 h-8 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="p-6 space-y-4">
+                <div class="aspect-video bg-slate-900 rounded-2xl overflow-hidden relative flex items-center justify-center border border-slate-800">
+                    <video id="modal-video-element" class="w-full h-full object-cover" controls width="100%">
+                        <source id="video-source" src="" type="video/mp4">
+                        Tu navegador no soporta reproducción de video HTML5.
+                    </video>
+
+                    <iframe
+                        id="modal-youtube-element"
+                        class="w-full h-full hidden"
+                        src=""
+                        title="Video de micro-relato"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                    <div id="story-media-fallback" class="hidden" role="status">El video no está disponible en los archivos originales incluidos en este ZIP.</div>
+                </div>
+
+                <p id="modal-description" class="text-xs text-slate-300 leading-relaxed"></p>
+
+                <div class="story-modal-actions pt-2 flex items-center justify-between gap-3 flex-wrap">
+                    <a id="modal-youtube-link" class="hidden youtube-story-link inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold" href="https://www.youtube.com/watch?v=wtzCJ6WG5UY" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-youtube" aria-hidden="true"></i> Ver relato 6 en YouTube
+                    </a>
+                    <button onclick="closeStoryModal()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 font-semibold">
+                        Cerrar ventana
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <!-- FUNCIÓN AGREGADA: abrir y reproducir el video del microrrelato elegido -->
+<script>
+(() => {
+    let modalReturnFocus = null;
+    const videosMicrorrelatos = {
+        1: {
+            video: "https://www.youtube.com/embed/8Ogs-ubaVt0",
+            youtube: true
+        },
+        2: {
+            video: "https://www.youtube.com/embed/B0Vbs77HIn4",
+            youtube: true
+        },
+        3: {
+            video: "https://www.youtube.com/embed/OOlSJVabndQ",
+            youtube: true
+        },
+        4: {
+            video: "https://www.youtube.com/embed/OOdB3v0rDKI",
+            youtube: true
+        },
+        5: {
+            video: "https://www.youtube.com/embed/jd0xRING8gE",
+            youtube: true
+        },
+        6: {
+            video: "https://www.youtube.com/embed/wtzCJ6WG5UY",
+            watchUrl: "https://www.youtube.com/watch?v=wtzCJ6WG5UY",
+            youtube: true
+        },
+        7: {
+            video: "https://www.youtube.com/embed/H5ucjTpRrvw",
+            youtube: true
+        },
+        8: {
+            video: "https://www.youtube.com/embed/24lwmBtJ9lY",
+            youtube: true
+        }
+    };
+
+    window.openStoryModal = function (id) {
+        const relato = videosMicrorrelatos[id];
+        const modal = document.getElementById("story-modal");
+        const video = document.getElementById("modal-video-element");
+        const source = document.getElementById("video-source");
+        const youtube = document.getElementById("modal-youtube-element");
+        const fallback = document.getElementById("story-media-fallback");
+        const youtubeLink = document.getElementById("modal-youtube-link");
+        const tarjetas = document.querySelectorAll("#stories-grid .story-card, #interviews-grid .story-card");
+        const tarjeta = tarjetas[Number(id) - 1];
+
+        if (!relato || !modal || !video || !source || !youtube || !tarjeta) {
+            console.error("No se encontró el modal, el video o la tarjeta:", id);
+            return;
+        }
+        const activatingControl = tarjeta.querySelector('button[onclick*="openStoryModal"]');
+        modalReturnFocus = activatingControl || (document.activeElement && document.activeElement !== document.body ? document.activeElement : null);
+
+        const titulo = tarjeta.querySelector("h4");
+        const descripcion = tarjeta.querySelector("p");
+
+        document.getElementById("modal-title").textContent =
+            titulo ? titulo.textContent.trim() : "Microrrelato";
+
+        document.getElementById("modal-description").textContent =
+            descripcion ? descripcion.textContent.trim() : "";
+        if (youtubeLink) {
+            youtubeLink.href = relato.watchUrl || relato.video.replace("/embed/", "/watch?v=");
+            youtubeLink.classList.toggle("hidden", Number(id) !== 6);
+        }
+
+        video.pause();
+        video.currentTime = 0;
+        if (fallback) fallback.classList.add("hidden");
+
+        if (relato.youtube) {
+            video.classList.add("hidden");
+            youtube.classList.remove("hidden");
+            source.src = "";
+            video.load();
+            youtube.src = relato.video + "?autoplay=1";
+        } else if (relato.available === false) {
+            youtube.src = "";
+            youtube.classList.add("hidden");
+            video.pause();
+            video.classList.add("hidden");
+            source.src = "";
+            video.load();
+            if (fallback) fallback.classList.remove("hidden");
+        } else {
+            youtube.src = "";
+            youtube.classList.add("hidden");
+            video.classList.remove("hidden");
+            source.src = relato.video;
+            video.load();
+        }
+
+        modal.classList.remove("hidden");
+        modal.setAttribute("aria-hidden", "false");
+    };
+
+    window.closeStoryModal = function () {
+        const modal = document.getElementById("story-modal");
+        const video = document.getElementById("modal-video-element");
+        const youtube = document.getElementById("modal-youtube-element");
+
+        if (video) {
+            video.pause();
+            video.currentTime = 0;
+        }
+
+        if (youtube) {
+            youtube.src = "";
+            youtube.classList.add("hidden");
+        }
+
+        if (video) {
+            video.classList.remove("hidden");
+        }
+
+        const fallback = document.getElementById("story-media-fallback");
+        if (fallback) fallback.classList.add("hidden");
+        const youtubeLink = document.getElementById("modal-youtube-link");
+        if (youtubeLink) youtubeLink.classList.add("hidden");
+        if (modal) {
+            modal.classList.add("hidden");
+            modal.setAttribute("aria-hidden", "true");
+        }
+        if (modalReturnFocus && modalReturnFocus.isConnected) {
+            const returnTarget = modalReturnFocus;
+            modalReturnFocus = null;
+            requestAnimationFrame(() => returnTarget.focus());
+        }
+    };
+})();
+    const storyVideo = document.getElementById("modal-video-element");
+    storyVideo?.addEventListener("error", () => {
+        const fallback = document.getElementById("story-media-fallback");
+        if (fallback && !storyVideo.classList.contains("hidden")) fallback.classList.remove("hidden");
+    });
+</script>
+<!-- FIN DE LA FUNCIÓN AGREGADA -->

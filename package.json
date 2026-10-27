@@ -1,0 +1,12 @@
+{
+  "name": "espejos-digitales",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "python3 -m http.server 3000 --bind 0.0.0.0",
+    "start:analytics": "node server.js"
+  },
+  "dependencies": {
+    "nodemailer": "^6.10.1"
+  }
+}
